@@ -7,7 +7,11 @@ const Home = () => {
   const [products, setProducts] = useState(null);
   useEffect(() => {
     const fetchProducts = async () => {
-      const { data, error } = await supabase.from("store").select();
+      const { data, error } = await supabase
+        .from("store")
+        .select()
+        .order("price", { ascending: false });
+
       if (error) {
         setFetchError("Data Not Found");
         console.log(error);
