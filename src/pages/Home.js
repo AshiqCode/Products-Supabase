@@ -20,6 +20,24 @@ const Home = () => {
     };
     fetchProducts();
   }, []);
+
+  const deleteHandle = async (id) => {
+    const { data, error } = await supabase
+      .from("store")
+      .delete()
+      .eq("id", id)
+      .select();
+    if (error) {
+      console.log(error);
+    }
+    if (data) {
+      console.log(data);
+      setProducts((prev) => {
+        return prev.filter((product) => product.id !== id);
+      });
+    }
+  };
+
   return (
     <>
       {fetchError && <p>{fetchError}</p>}
@@ -45,7 +63,14 @@ const Home = () => {
                 <Link to={`/${product.id}`} className="m-4">
                   Edid
                 </Link>
-                <Link className="m-4">Delete</Link>
+                <span
+                  onClick={() => {
+                    deleteHandle(product.id);
+                  }}
+                  className="m-4"
+                >
+                  Delete
+                </span>
               </div>
             );
           })}
