@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Update from "./pages/Update";
 import Create from "./pages/Create";
 import UploadFile from "./pages/UploadFile";
+import ViewFiles from "./pages/ViewFiles";
 
 function App() {
   return (
@@ -32,6 +33,12 @@ function App() {
       Upload File
     </Link>
 
+<Link
+      to="/ViewFiles"
+      className="text-gray-700 font-medium px-4 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition duration-200"
+    >
+      ViewFiles
+    </Link>
   </div>
 </div>
 
@@ -40,6 +47,7 @@ function App() {
         <Route path="/:id" element={<Update />} />
         <Route path="/Create" element={<Create />} />
       <Route path="/UploadFile" element={<UploadFile />} />
+      <Route path="/ViewFiles" element={<ViewFiles />} />
 
       </Routes>
     </BrowserRouter>
