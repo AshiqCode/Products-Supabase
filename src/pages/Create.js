@@ -13,13 +13,13 @@ const Create = () => {
       .insert([{ name, price, description }])
       .select()
       .single();
-    console.log(error, data);
+    // console.log(error, data);
 
     if (error) {
-      console.log(error);
+      // console.log(error);
     }
     if (data) {
-      console.log(data);
+      // console.log(data);
       navigate("/");
     }
   };

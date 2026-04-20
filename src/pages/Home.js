@@ -14,7 +14,7 @@ const Home = () => {
 
       if (error) {
         setFetchError("Data Not Found");
-        console.log(error);
+        // console.log(error);
         setProducts(null);
       }
       if (data) {
@@ -32,10 +32,10 @@ const Home = () => {
       .eq("id", id)
       .select();
     if (error) {
-      console.log(error);
+      // console.log(error);
     }
     if (data) {
-      console.log(data);
+      // console.log(data);
       setProducts((prev) => {
         return prev.filter((product) => product.id !== id);
       });
@@ -62,19 +62,24 @@ const Home = () => {
                 </p>
 
                 <p className="text-gray-600 mt-3 text-sm leading-relaxed">
-                  {product.Description}
+                  {product.description}
                 </p>
-                <Link to={`/${product.id}`} className="m-4">
-                  Edid
-                </Link>
-                <span
-                  onClick={() => {
-                    deleteHandle(product.id);
-                  }}
-                  className="m-4"
-                >
-                  Delete
-                </span>
+                <div className="mt-5">
+                  <Link
+                    to={`/${product.id}`}
+                    className="m-4 px-5 py-2 bg-black text-white rounded-lg shadow-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition"
+                  >
+                    Edit
+                  </Link>
+                  <span
+                    onClick={() => {
+                      deleteHandle(product.id);
+                    }}
+                    className="m-4 px-5 py-2 bg-black text-white rounded-lg shadow-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition"
+                  >
+                    Delete
+                  </span>
+                </div>
               </div>
             );
           })}

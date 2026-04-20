@@ -9,10 +9,10 @@ const Update = () => {
   const [description, setDescription] = useState("");
   const navigate = useNavigate();
   const productId = useParams().id;
-  console.log(productId);
+  // console.log(productId);
   useEffect(() => {
     const fetchProducts = async () => {
-      const { data, error } = await supabase
+      const { data} = await supabase
         .from("store")
         .select()
         .eq("id", productId)
@@ -24,21 +24,20 @@ const Update = () => {
       setDescription(data.description);
     };
     fetchProducts();
-  }, []);
+  }, [productId]);
 
-  console.log(products);
+  // console.log(products);
   const updateHandle = async () => {
-    // console.log(name, price, description);
     const { data, error } = await supabase
       .from("store")
       .update({ name, price, description })
       .eq("id", productId)
       .select();
     if (error) {
-      console.log(error);
+      // console.log(error);
     }
     if (data) {
-      console.log(data);
+      // console.log(data);
       navigate("/");
     }
   };
