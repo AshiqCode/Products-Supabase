@@ -41,8 +41,7 @@ return (
           file:text-sm file:font-semibold
           file:bg-blue-500 file:text-white
           hover:file:bg-blue-600
-          cursor-pointer border border-gray-300 rounded-lg p-2"
-          
+          cursor-pointer border border-gray-300 rounded-lg p-2"    
           onChange={(e)=>setFile(e.target.files[0])}
               />
     </label>

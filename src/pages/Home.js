@@ -46,7 +46,7 @@ const Home = () => {
     <>
       {fetchError && <p>{fetchError}</p>}
       {products && (
-        <div className="mt-10">
+        <div className="mt-28">
           {products.map((product) => {
             return (
               <div

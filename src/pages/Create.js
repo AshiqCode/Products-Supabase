@@ -24,7 +24,7 @@ const Create = () => {
     }
   };
   return (
-    <div className="w-2/5 mx-auto mt-10">
+    <div className="w-2/5 mx-auto mt-28">
       <p className="text-black text-xl font-semibold mb-4">Create</p>
 
       <input
